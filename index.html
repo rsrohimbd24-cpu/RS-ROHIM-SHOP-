@@ -1,0 +1,1908 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>RS ROHIM SHOP - নেটিভ অ্যাপ স্টাইল</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+            background: #f8f9fc;
+            color: #1e293b;
+            line-height: 1.6;
+            padding-bottom: 80px;
+        }
+
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #dc2626;
+            border-radius: 10px;
+        }
+
+        /* হেডার */
+        .app-header {
+            background: linear-gradient(135deg, #dc2626, #991b1b);
+            color: white;
+            padding: 20px 16px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(220, 38, 38, 0.3);
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .company-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .company-badge i {
+            font-size: 28px;
+            background: white;
+            color: #dc2626;
+            padding: 8px;
+            border-radius: 12px;
+        }
+
+        .company-badge h1 {
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .company-badge span {
+            font-size: 12px;
+            opacity: 0.9;
+            display: block;
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 18px;
+        }
+
+        .header-icons a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            position: relative;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #fbbf24;
+            color: #1e293b;
+            font-size: 10px;
+            font-weight: bold;
+            padding: 3px 6px;
+            border-radius: 50%;
+            min-width: 18px;
+            text-align: center;
+        }
+
+        /* ডেলিভারি ইনফো */
+        .delivery-info {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            backdrop-filter: blur(10px);
+            margin-top: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .delivery-info:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .delivery-icon {
+            background: white;
+            color: #dc2626;
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .delivery-text {
+            flex: 1;
+        }
+
+        .delivery-text .company {
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .delivery-text .details {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+
+        /* সার্চ বার */
+        .search-container {
+            padding: 16px;
+        }
+
+        .search-box {
+            background: white;
+            border-radius: 30px;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        .search-box i {
+            color: #dc2626;
+            font-size: 18px;
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            outline: none;
+            font-size: 15px;
+            font-family: 'Hind Siliguri', sans-serif;
+            background: transparent;
+        }
+
+        .search-box input::placeholder {
+            color: #94a3b8;
+        }
+
+        /* ক্যাটাগরি স্ক্রল */
+        .categories-scroll {
+            padding: 0 16px 20px;
+            overflow-x: auto;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .categories-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .category-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            padding: 10px 20px;
+            border-radius: 40px;
+            margin-right: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+            color: #1e293b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .category-chip i {
+            color: #dc2626;
+            font-size: 16px;
+        }
+
+        .category-chip.active {
+            background: #dc2626;
+            color: white;
+            border-color: #dc2626;
+        }
+
+        .category-chip.active i {
+            color: white;
+        }
+
+        /* হিরো স্লাইডার */
+        .hero-slider {
+            padding: 0 16px 20px;
+        }
+
+        .hero-card {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            border-radius: 24px;
+            padding: 25px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 300px;
+            height: 300px;
+            background: rgba(220, 38, 38, 0.2);
+            border-radius: 50%;
+        }
+
+        .hero-content h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .hero-content p {
+            font-size: 14px;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .hero-btn {
+            background: #dc2626;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* পণ্য গ্রিড */
+        .section-title {
+            padding: 0 16px;
+            margin: 20px 0 15px;
+            font-size: 20px;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .section-title a {
+            color: #dc2626;
+            font-size: 14px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            padding: 0 16px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(220,38,38,0.15);
+        }
+
+        .product-image {
+            height: 150px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8fafc;
+            position: relative;
+        }
+
+        .product-image img {
+            max-width: 100%;
+            max-height: 120px;
+            object-fit: contain;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #dc2626;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        .product-info {
+            padding: 15px;
+        }
+
+        .product-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #1e293b;
+            line-height: 1.4;
+        }
+
+        .product-price {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .current-price {
+            font-size: 16px;
+            font-weight: 700;
+            color: #dc2626;
+        }
+
+        .old-price {
+            font-size: 12px;
+            color: #94a3b8;
+            text-decoration: line-through;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            padding: 10px;
+            background: #dc2626;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: 'Hind Siliguri', sans-serif;
+        }
+
+        .add-to-cart i {
+            font-size: 14px;
+        }
+
+        /* অফার ব্যানার */
+        .offer-banner {
+            padding: 20px 16px;
+        }
+
+        .offer-card {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            border-radius: 20px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .offer-text h3 {
+            font-size: 18px;
+            color: #92400e;
+        }
+
+        .offer-text p {
+            font-size: 14px;
+            color: #b45309;
+        }
+
+        .offer-tag {
+            background: #dc2626;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 40px;
+            font-weight: 700;
+        }
+
+        /* প্রোফাইল নেভিগেশন বার - নিচে */
+        .profile-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            border-radius: 30px 30px 0 0;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 12px 16px 20px;
+        }
+
+        .profile-menu-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .profile-nav-item {
+            text-align: center;
+            text-decoration: none;
+            color: #1e293b;
+            cursor: pointer;
+        }
+
+        .profile-nav-item i {
+            width: 45px;
+            height: 45px;
+            background: #fee2e2;
+            color: #dc2626;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            margin: 0 auto 8px;
+            transition: 0.3s;
+        }
+
+        .profile-nav-item span {
+            font-size: 11px;
+            font-weight: 500;
+            display: block;
+        }
+
+        .profile-nav-item:hover i {
+            background: #dc2626;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .profile-details-panel {
+            background: #f8fafc;
+            border-radius: 20px;
+            padding: 15px;
+            margin-top: 10px;
+        }
+
+        .profile-detail-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .profile-detail-row:last-child {
+            border-bottom: none;
+        }
+
+        .profile-detail-row i {
+            width: 30px;
+            color: #dc2626;
+        }
+
+        .profile-detail-row .label {
+            font-size: 12px;
+            color: #64748b;
+        }
+
+        .profile-detail-row .value {
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        /* কোম্পানি তথ্য প্যানেল */
+        .company-panel {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: white;
+            border-radius: 20px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .company-panel h4 {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+
+        .company-panel h4 i {
+            color: #dc2626;
+        }
+
+        .company-info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .company-info-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .company-info-item i {
+            width: 30px;
+            height: 30px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #dc2626;
+        }
+
+        .company-info-item div {
+            font-size: 12px;
+        }
+
+        .company-info-item strong {
+            display: block;
+            font-size: 13px;
+            color: #fbbf24;
+        }
+
+        /* ডেলিভারি পার্টনার প্যানেল */
+        .delivery-panel {
+            background: white;
+            border-radius: 20px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #e2e8f0;
+        }
+
+        .delivery-panel h4 {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 15px;
+            font-size: 16px;
+            color: #1e293b;
+        }
+
+        .delivery-panel h4 i {
+            color: #dc2626;
+        }
+
+        .delivery-partner-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .delivery-partner-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px;
+            background: #f8fafc;
+            border-radius: 12px;
+        }
+
+        .delivery-partner-item i {
+            width: 35px;
+            height: 35px;
+            background: #dc2626;
+            color: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .delivery-partner-info {
+            flex: 1;
+        }
+
+        .delivery-partner-info h5 {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        .delivery-partner-info p {
+            font-size: 11px;
+            color: #64748b;
+        }
+
+        .delivery-fee {
+            background: #dc2626;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        /* সেটিংস প্যানেল */
+        .settings-panel {
+            background: white;
+            border-radius: 20px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .settings-panel h4 {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .settings-panel h4 i {
+            color: #dc2626;
+        }
+
+        .settings-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .settings-item:last-child {
+            border-bottom: none;
+        }
+
+        .settings-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .settings-left i {
+            width: 35px;
+            height: 35px;
+            background: #fee2e2;
+            color: #dc2626;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .settings-left div span {
+            display: block;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .settings-left div small {
+            color: #64748b;
+            font-size: 11px;
+        }
+
+        .toggle-switch {
+            width: 45px;
+            height: 24px;
+            background: #e2e8f0;
+            border-radius: 30px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .toggle-switch.active {
+            background: #dc2626;
+        }
+
+        .toggle-switch:after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            top: 2px;
+            left: 2px;
+            transition: 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .toggle-switch.active:after {
+            left: 23px;
+        }
+
+        /* কোম্পানি ফিল্টার (ফোনের জন্য) */
+        .brand-scroll {
+            padding: 0 16px 20px;
+            overflow-x: auto;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            display: none; /* ডিফল্টে লুকানো */
+        }
+        .brand-scroll::-webkit-scrollbar {
+            display: none;
+        }
+        .brand-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            padding: 8px 18px;
+            border-radius: 40px;
+            margin-right: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+            color: #1e293b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .brand-chip i {
+            color: #dc2626;
+            font-size: 16px;
+        }
+        .brand-chip.active {
+            background: #dc2626;
+            color: white;
+            border-color: #dc2626;
+        }
+        .brand-chip.active i {
+            color: white;
+        }
+
+        /* CPU ফিল্টার (ল্যাপটপের জন্য) */
+        .cpu-scroll {
+            padding: 0 16px 20px;
+            overflow-x: auto;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            display: none; /* ডিফল্টে লুকানো */
+        }
+        .cpu-scroll::-webkit-scrollbar {
+            display: none;
+        }
+        .cpu-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            padding: 8px 18px;
+            border-radius: 40px;
+            margin-right: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+            color: #1e293b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .cpu-chip i {
+            color: #dc2626;
+            font-size: 16px;
+        }
+        .cpu-chip.active {
+            background: #dc2626;
+            color: white;
+            border-color: #dc2626;
+        }
+        .cpu-chip.active i {
+            color: white;
+        }
+
+        /* নিচের নেভিগেশন বার - হোম পেজের জন্য */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px 16px 20px;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+            border-radius: 30px 30px 0 0;
+            z-index: 999;
+        }
+
+        .nav-item {
+            text-align: center;
+            text-decoration: none;
+            color: #94a3b8;
+            transition: 0.3s;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .nav-item i {
+            font-size: 22px;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .nav-item span {
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        .nav-item.active {
+            color: #dc2626;
+        }
+
+        .nav-item .badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #dc2626;
+            color: white;
+            font-size: 9px;
+            padding: 3px 6px;
+            border-radius: 50%;
+            min-width: 16px;
+        }
+
+        /* =========================================
+           ফুল স্ক্রিন পেজ স্টাইল 
+           ========================================= */
+        .full-screen-page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #f8f9fc;
+            z-index: 3000;
+            transform: translateX(100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .full-screen-page.active {
+            transform: translateX(0);
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, #dc2626, #991b1b);
+            color: white;
+            padding: 20px 16px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 3010;
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.2);
+        }
+
+        .page-header i.fa-arrow-left {
+            font-size: 22px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .page-header h2 {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .page-content {
+            padding: 16px;
+            flex: 1;
+        }
+
+        /* পেমেন্ট মেথড কার্ড */
+        .payment-card {
+            background: white;
+            border-radius: 16px;
+            padding: 15px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        .payment-card img {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            object-fit: contain;
+            background: #fff;
+            padding: 2px;
+            border: 1px solid #f1f5f9;
+        }
+
+        /* এম্পটি স্টেট */
+        .empty-state {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 60vh;
+            text-align: center;
+            color: #64748b;
+        }
+
+        .empty-state i {
+            font-size: 60px;
+            color: #cbd5e1;
+            margin-bottom: 15px;
+        }
+
+        /* প্রোডাক্ট ডিটেলস স্পেসিফিকেশন */
+        .spec-list {
+            list-style: none;
+            padding: 0;
+            font-size: 14px;
+            color: #64748b;
+        }
+        
+        .spec-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f1f5f9;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .spec-list li:last-child {
+            border-bottom: none;
+        }
+
+        .spec-list i {
+            color: #dc2626;
+            width: 20px;
+            text-align: center;
+        }
+
+        /* রেসপনসিভ */
+        @media (max-width: 380px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="app-header">
+        <div class="header-top">
+            <div class="company-badge">
+                <i class="fas fa-store"></i>
+                <div>
+                    <h1>RS ROHIM SHOP</h1>
+                    <span>বিশ্বস্ত অনলাইন শপ</span>
+                </div>
+            </div>
+            <div class="header-icons">
+                <a href="#"><i class="far fa-bell"></i></a>
+                <a href="#" style="position: relative;" id="cartIcon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-badge" id="cartCount">৩</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="delivery-info" onclick="openPage('page-profile')">
+            <div class="delivery-icon">
+                <i class="fas fa-truck"></i>
+            </div>
+            <div class="delivery-text">
+                <div class="company">RS ROHIM SHIPMENT</div>
+                <div class="details">ফ্রি ডেলিভারি • সারাদেশে ২-৪ দিন</div>
+            </div>
+            <i class="fas fa-chevron-right"></i>
+        </div>
+    </header>
+
+    <div class="search-container">
+        <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="পণ্য সার্চ করুন..." id="searchInput">
+            <i class="fas fa-sliders-h" style="color: #dc2626;"></i>
+        </div>
+    </div>
+
+    <div class="categories-scroll">
+        <div class="category-chip active" data-category="all">
+            <i class="fas fa-home"></i> সব
+        </div>
+        <div class="category-chip" data-category="phone">
+            <i class="fas fa-mobile-alt"></i> ফোন
+        </div>
+        <div class="category-chip" data-category="laptop">
+            <i class="fas fa-laptop"></i> ল্যাপটপ
+        </div>
+        <div class="category-chip" data-category="audio">
+            <i class="fas fa-headphones"></i> অডিও
+        </div>
+        <div class="category-chip" data-category="watch">
+            <i class="fas fa-clock"></i> ওয়াচ
+        </div>
+        <div class="category-chip" data-category="camera">
+            <i class="fas fa-camera"></i> ক্যামেরা
+        </div>
+    </div>
+
+    <!-- কোম্পানি ফিল্টার (শুধু ফোন ক্যাটাগরির জন্য) -->
+    <div class="brand-scroll" id="brandFilter">
+        <div class="brand-chip active" data-brand="all">
+            <i class="fas fa-building"></i> সব
+        </div>
+        <div class="brand-chip" data-brand="samsung">
+            <i class="fas fa-mobile-alt"></i> স্যামসাং
+        </div>
+        <div class="brand-chip" data-brand="xiaomi">
+            <i class="fas fa-mobile-alt"></i> শাওমি
+        </div>
+        <div class="brand-chip" data-brand="oneplus">
+            <i class="fas fa-mobile-alt"></i> ওয়ানপ্লাস
+        </div>
+    </div>
+
+    <!-- CPU ফিল্টার (শুধু ল্যাপটপ ক্যাটাগরির জন্য) -->
+    <div class="cpu-scroll" id="cpuFilter">
+        <div class="cpu-chip active" data-cpu="all">
+            <i class="fas fa-microchip"></i> সব
+        </div>
+        <div class="cpu-chip" data-cpu="i5">
+            <i class="fas fa-microchip"></i> Intel i5
+        </div>
+        <div class="cpu-chip" data-cpu="i7">
+            <i class="fas fa-microchip"></i> Intel i7
+        </div>
+        <div class="cpu-chip" data-cpu="i9">
+            <i class="fas fa-microchip"></i> Intel i9
+        </div>
+    </div>
+
+    <div class="hero-slider">
+        <div class="hero-card">
+            <div class="hero-content">
+                <h2>বিশাল ছাড়!</h2>
+                <p>৭০% পর্যন্ত ছাড় সকল ইলেকট্রনিক্স পণ্যে</p>
+                <a href="#" class="hero-btn">
+                    এখনই কিনুন <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-title">
+        জনপ্রিয় পণ্য
+        <a href="#">সব দেখুন <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <div class="products-grid" id="productsGrid">
+        <!-- পণ্যের কার্ডগুলো জাভাস্ক্রিপ্ট দ্বারা ডাইনামিকভাবে দেখানো হবে -->
+    </div>
+
+    <div class="offer-banner">
+        <div class="offer-card">
+            <div class="offer-text">
+                <h3>ফ্ল্যাশ সেল!</h3>
+                <p>আর মাত্র ৩ ঘন্টা বাকি</p>
+            </div>
+            <div class="offer-tag">৫০% ছাড়</div>
+        </div>
+    </div>
+
+    <nav class="bottom-nav">
+        <div class="nav-item active" onclick="closeAllPages(); filterCategory('all');">
+            <i class="fas fa-home"></i>
+            <span>হোম</span>
+        </div>
+        <div class="nav-item" onclick="openPage('page-search')">
+            <i class="fas fa-search"></i>
+            <span>সার্চ</span>
+        </div>
+        <div class="nav-item" onclick="openPage('page-order')">
+            <i class="fas fa-shopping-bag"></i>
+            <span>অর্ডার</span>
+            <span class="badge" id="orderBadge">২</span>
+        </div>
+        <div class="nav-item" onclick="openPage('page-wishlist')">
+            <i class="fas fa-heart"></i>
+            <span>উইশলিস্ট</span>
+            <span class="badge" id="wishlistBadge">০</span>
+        </div>
+        <div class="nav-item" onclick="openPage('page-profile')">
+            <i class="fas fa-user"></i>
+            <span>প্রোফাইল</span>
+        </div>
+    </nav>
+
+
+    <!-- ফুল স্ক্রিন পেজগুলো (প্রোফাইল, প্রোডাক্ট ডিটেলস, অর্ডার ইত্যাদি) -->
+    <div class="full-screen-page" id="page-profile">
+        <div class="page-header" style="justify-content: space-between;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <i class="fas fa-user-circle" style="font-size: 32px;"></i>
+                <div>
+                    <h3 style="font-size: 18px; line-height: 1;">মোঃ আব্দুর রোহিম</h3>
+                    <p style="font-size: 12px; opacity: 0.9;">abdurrohimm305@gmail.com</p>
+                </div>
+            </div>
+            <i class="fas fa-times" onclick="closePage('page-profile')" style="font-size: 20px;"></i>
+        </div>
+        
+        <div class="page-content">
+            <div class="profile-details-panel">
+                <h4 style="display: flex; align-items: center; gap: 8px; margin-bottom: 15px;">
+                    <i class="fas fa-id-card" style="color: #dc2626;"></i>
+                    অ্যাকাউন্ট তথ্য
+                </h4>
+                <div class="profile-detail-row">
+                    <i class="fas fa-user"></i>
+                    <div>
+                        <div class="label">পূর্ণ নাম</div>
+                        <div class="value">মোঃ আব্দুর রোহিম</div>
+                    </div>
+                </div>
+                <div class="profile-detail-row">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <div class="label">ইমেইল</div>
+                        <div class="value">abdurrohimm305@gmail.com</div>
+                    </div>
+                </div>
+                <div class="profile-detail-row">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <div class="label">ফোন নাম্বার</div>
+                        <div class="value">+8801612352158</div>
+                    </div>
+                </div>
+                <div class="profile-detail-row">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <div class="label">ঠিকানা</div>
+                        <div class="value">রংপুর, গাইবান্ধা, ফুলছড়ি - ৫৭৬০</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="company-panel">
+                <h4><i class="fas fa-building"></i> RS ROHIM GROUP</h4>
+                <div class="company-info-grid">
+                    <div class="company-info-item">
+                        <i class="fas fa-globe"></i>
+                        <div><strong>দেশ</strong> বাংলাদেশ</div>
+                    </div>
+                    <div class="company-info-item">
+                        <i class="fas fa-city"></i>
+                        <div><strong>শহর</strong> ঢাকা, চট্টগ্রাম</div>
+                    </div>
+                    <div class="company-info-item">
+                        <i class="fas fa-truck"></i>
+                        <div><strong>ডেলিভারি</strong> সারাদেশ</div>
+                    </div>
+                    <div class="company-info-item">
+                        <i class="fas fa-clock"></i>
+                        <div><strong>সময়</strong> ২৪/৭ সাপোর্ট</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="delivery-panel">
+                <h4><i class="fas fa-truck-fast"></i> আমাদের ডেলিভারি পার্টনার</h4>
+                <div class="delivery-partner-list">
+                    <div class="delivery-partner-item">
+                        <i class="fas fa-truck"></i>
+                        <div class="delivery-partner-info">
+                            <h5>RS ROHIM SHIPMENT</h5>
+                            <p>এক্সপ্রেস ডেলিভারি • ঢাকা ২৪ঘন্টা</p>
+                        </div>
+                        <span class="delivery-fee">ফ্রি</span>
+                    </div>
+                    <div class="delivery-partner-item">
+                        <i class="fas fa-shipping-fast"></i>
+                        <div class="delivery-partner-info">
+                            <h5>রোহিম লজিস্টিক্স</h5>
+                            <p>সারাদেশ • ২-৪ কার্যদিবস</p>
+                        </div>
+                        <span class="delivery-fee">৳৬০</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-panel">
+                <h4><i class="fas fa-cog"></i> সেটিংস ও প্রেফারেন্স</h4>
+                
+                <div class="settings-item">
+                    <div class="settings-left">
+                        <i class="fas fa-bell"></i>
+                        <div><span>নোটিফিকেশন</span><small>অর্ডার আপডেট পান</small></div>
+                    </div>
+                    <div class="toggle-switch active"></div>
+                </div>
+                <div class="settings-item">
+                    <div class="settings-left">
+                        <i class="fas fa-language"></i>
+                        <div><span>ভাষা</span><small>বাংলা (প্রাথমিক)</small></div>
+                    </div>
+                    <i class="fas fa-chevron-right" style="color: #94a3b8;"></i>
+                </div>
+                <div class="settings-item">
+                    <div class="settings-left">
+                        <i class="fas fa-lock"></i>
+                        <div><span>প্রাইভেসি</span><small>অ্যাকাউন্ট সুরক্ষা</small></div>
+                    </div>
+                    <i class="fas fa-chevron-right" style="color: #94a3b8;"></i>
+                </div>
+            </div>
+
+            <div class="profile-menu-grid" style="margin-top: 15px;">
+                <a class="profile-nav-item" onclick="openPage('page-order')">
+                    <i class="fas fa-shopping-bag"></i><span>অর্ডার</span>
+                </a>
+                <a class="profile-nav-item" onclick="openPage('page-wishlist')">
+                    <i class="fas fa-heart"></i><span>উইশলিস্ট</span>
+                </a>
+                <a class="profile-nav-item" onclick="openPage('page-offer')">
+                    <i class="fas fa-gift"></i><span>অফার</span>
+                </a>
+                <a class="profile-nav-item" onclick="openPage('page-wallet')">
+                    <i class="fas fa-wallet"></i><span>ওয়ালেট</span>
+                </a>
+                <a class="profile-nav-item" onclick="openPage('page-history')">
+                    <i class="fas fa-history"></i><span>ইতিহাস</span>
+                </a>
+                <a class="profile-nav-item" onclick="openPage('page-review')">
+                    <i class="fas fa-star"></i><span>রিভিউ</span>
+                </a>
+                <a class="profile-nav-item" onclick="openPage('page-support')">
+                    <i class="fas fa-question-circle"></i><span>সাপোর্ট</span>
+                </a>
+                <a class="profile-nav-item" onclick="closePage('page-profile')">
+                    <i class="fas fa-sign-out-alt"></i><span>লগআউট</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="full-screen-page" id="page-product-details">
+        <div class="page-header">
+            <i class="fas fa-arrow-left" onclick="closePage('page-product-details')"></i>
+            <h2>পণ্যের বিবরণ</h2>
+            <i class="fas fa-heart" style="margin-left: auto;" onclick="toggleWishlist(this)"></i>
+            <i class="fas fa-share-alt"></i>
+        </div>
+        
+        <div class="page-content" style="padding: 0;">
+            <div style="background: white; padding: 30px; text-align: center; border-bottom: 1px solid #e2e8f0;">
+                <img id="detailsImage" src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3" style="max-height: 250px; width: auto; object-fit: contain;">
+            </div>
+            
+            <div style="padding: 20px;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                    <h2 id="detailsTitle" style="font-size: 22px; color: #1e293b; line-height: 1.3;">স্যামসাং গ্যালাক্সি এস২৩ (Samsung Galaxy S23)</h2>
+                    <span style="background: #fbbf24; color: #1e293b; padding: 4px 8px; border-radius: 8px; font-weight: bold; font-size: 12px;"><i class="fas fa-star"></i> 4.9</span>
+                </div>
+                
+                <div style="color: #dc2626; font-size: 26px; font-weight: bold; margin: 10px 0;" id="detailsPrice">
+                    ৳ ১,১৫,০০০ <span style="font-size: 16px; color: #94a3b8; text-decoration: line-through; font-weight: normal;" id="detailsOldPrice">৳ ১,৩৫,০০০</span>
+                </div>
+                
+                <p style="color: #64748b; font-size: 14px; margin-bottom: 20px; line-height: 1.6;" id="detailsDescription">সর্বশেষ প্রযুক্তির স্ন্যাপড্রাগন প্রসেসর এবং দুর্দান্ত ক্যামেরার সাথে सैमসাং এর সেরা ফ্লাগশিপ ফোন।</p>
+                
+                <div style="background: white; padding: 15px; border-radius: 16px; margin-bottom: 25px; border: 1px solid #e2e8f0;">
+                    <h4 style="margin-bottom: 12px; font-size: 16px; color: #1e293b;"><i class="fas fa-sliders-h" style="color: #dc2626;"></i> ফিচার ও স্পেসিফিকেশন:</h4>
+                    <ul class="spec-list" id="detailsSpecs">
+                        <li><i class="fas fa-microchip"></i> <span><strong>প্রসেসর:</strong> Snapdragon 8 Gen 2</span></li>
+                        <li><i class="fas fa-memory"></i> <span><strong>র‍্যাম (RAM):</strong> 8 GB</span></li>
+                        <li><i class="fas fa-hdd"></i> <span><strong>স্টোরেজ (ROM):</strong> 256 GB</span></li>
+                        <li><i class="fas fa-camera"></i> <span><strong>ক্যামেরা:</strong> 50MP + 12MP + 10MP (Back)</span></li>
+                        <li><i class="fas fa-battery-full"></i> <span><strong>ব্যাটারি:</strong> 3900 mAh</span></li>
+                    </ul>
+                </div>
+
+                <button style="width: 100%; background: #dc2626; color: white; border: none; padding: 16px; border-radius: 50px; font-size: 16px; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 10px; cursor: pointer; box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);" onclick="addToCartFromDetails()">
+                    <i class="fas fa-shopping-bag"></i> এখনই অর্ডার করুন
+                </button>
+            </div>
+
+            <div style="padding: 20px 0 30px;">
+                <div class="section-title">সম্পর্কিত অন্যান্য পণ্য</div>
+                <div class="products-grid" id="relatedProductsGrid">
+                    <!-- সম্পর্কিত পণ্য দেখানো হবে -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="full-screen-page" id="page-order">
+        <div class="page-header">
+            <i class="fas fa-arrow-left" onclick="closePage('page-order')"></i>
+            <h2>আপনার অর্ডার সমূহ</h2>
+        </div>
+        <div class="page-content" id="orderList">
+            <!-- অর্ডার লিস্ট দেখানো হবে -->
+        </div>
+    </div>
+
+    <div class="full-screen-page" id="page-wishlist">
+        <div class="page-header">
+            <i class="fas fa-arrow-left" onclick="closePage('page-wishlist')"></i>
+            <h2>আপনার উইশলিস্ট</h2>
+        </div>
+        <div class="page-content" id="wishlistItems">
+            <div class="empty-state">
+                <i class="fas fa-heart-broken"></i>
+                <h3>উইশলিস্ট খালি</h3>
+                <p>পছন্দের পণ্যগুলো উইশলিস্টে যুক্ত করুন।</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="full-screen-page" id="page-offer">
+        <div class="page-header">
+            <i class="fas fa-arrow-left" onclick="closePage('page-offer')"></i>
+            <h2>বিশেষ অফার ও কুপন</h2>
+        </div>
+        <div class="page-content">
+            <div class="offer-card" style="margin-bottom: 15px;">
+                <div class="offer-text">
+                    <h3>RS300</h3>
+                    <p>৩০০ টাকা ছাড় (১০০০+ টাকার অর্ডারে)</p>
+                </div>
+                <div class="offer-tag">কপি করুন</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="full-screen-page" id="page-wallet">
+        <div class="page-header">
+            <i class="fas fa-arrow-left" onclick="closePage('page-wallet')"></i>
+            <h2>ওয়ালেট ও পেমেন্ট মেথড</h2>
+        </div>
+        <div class="page-content">
+            <h3 style="margin-bottom: 15px; font-size: 16px;">সংরক্ষিত পেমেন্ট অপশন</h3>
+            <div class="payment-card">
+                <i class="fas fa-regular fa-circle" style="font-size: 30px; color: #dc2626; background: #fee2e2; padding: 10px; border-radius: 10px;">বি</i>
+                <div>
+                    <h4 style="font-size: 16px; color: #1e293b;">বিকাশ (bKash)</h4>
+                    <p style="font-size: 13px; color: #64748b;">পার্সোনাল: +8801612352158</p>
+                </div>
+            </div>
+            <div class="payment-card">
+                <i class="fas fa-regular fa-circle" style="font-size: 30px; color: #dc2626; background: #fee2e2; padding: 10px; border-radius: 10px;">ন</i>
+                <div>
+                    <h4 style="font-size: 16px; color: #1e293b;">নগদ (Nagad)</h4>
+                    <p style="font-size: 13px; color: #64748b;">পার্সোনাল: +8801612352158</p>
+                </div>
+            </div>
+            <div class="payment-card">
+                <i class="fas fa-regular fa-circle" style="font-size: 30px; color: #dc2626; background: #fee2e2; padding: 10px; border-radius: 10px;">র</i>
+                <div>
+                    <h4 style="font-size: 16px; color: #1e293b;">রকেট (Rocket)</h4>
+                    <p style="font-size: 13px; color: #64748b;">পার্সোনাল: +8801612352158</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="full-screen-page" id="page-history">
+        <div class="page-header">
+            <i class="fas fa-arrow-left" onclick="closePage('page-history')"></i>
+            <h2>লেনদেনের ইতিহাস</h2>
+        </div>
+        <div class="page-content">
+            <div class="empty-state">
+                <i class="fas fa-history"></i>
+                <h3>কোনো লেনদেন নেই</h3>
+                <p>আপনার পূর্বের কোনো লেনদেন রেকর্ড নেই।</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="full-screen-page" id="page-review">
+        <div class="page-header">
+            <i class="fas fa-arrow-left" onclick="closePage('page-review')"></i>
+            <h2>আপনার রিভিউ</h2>
+        </div>
+        <div class="page-content">
+            <div class="empty-state">
+                <i class="fas fa-star-half-alt"></i>
+                <h3>কোনো রিভিউ নেই</h3>
+                <p>পণ্য কিনে আপনার মতামত জানান।</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="full-screen-page" id="page-support">
+        <div class="page-header">
+            <i class="fas fa-arrow-left" onclick="closePage('page-support')"></i>
+            <h2>সাপোর্ট সেন্টার</h2>
+        </div>
+        <div class="page-content">
+            <div class="payment-card" style="margin-top: 20px;">
+                <i class="fas fa-phone-alt" style="font-size: 24px; color: #dc2626; margin: 0 10px;"></i>
+                <div>
+                    <h4 style="font-size: 16px; color: #1e293b;">হেল্পলাইন</h4>
+                    <p style="font-size: 14px; color: #64748b; font-weight: bold;">+8801612352158</p>
+                </div>
+            </div>
+            <div class="payment-card">
+                <i class="fas fa-envelope" style="font-size: 24px; color: #dc2626; margin: 0 10px;"></i>
+                <div>
+                    <h4 style="font-size: 16px; color: #1e293b;">ইমেইল সাপোর্ট</h4>
+                    <p style="font-size: 12px; color: #64748b;">abdurrohimm305@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="full-screen-page" id="page-search">
+        <div class="page-header">
+            <i class="fas fa-arrow-left" onclick="closePage('page-search')"></i>
+            <div class="search-box" style="margin: 0; flex: 1; padding: 8px 15px;">
+                <input type="text" placeholder="পণ্য খুঁজুন..." style="color: #1e293b;" id="searchInputPage" autofocus>
+            </div>
+        </div>
+        <div class="page-content" id="searchResults">
+            <p style="color: #64748b; text-align: center; margin-top: 20px;">এখানে আপনার পছন্দের পণ্য সার্চ করুন</p>
+        </div>
+    </div>
+
+    <script>
+        // প্রাথমিক ডাটা
+        let products = [
+            { id: 1, name: 'স্যামসাং গ্যালাক্সি এস২৩', category: 'phone', brand: 'samsung', cpu: null, price: 115000, oldPrice: 135000, image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80', badge: '-২০%', description: 'সর্বশেষ প্রযুক্তির স্ন্যাপড্রাগন প্রসেসর এবং দুর্দান্ত ক্যামেরার সাথে স্যামসাং এর সেরা ফ্লাগশিপ ফোন।', specs: ['Snapdragon 8 Gen 2', '8 GB RAM', '256 GB ROM', '50MP+12MP+10MP ক্যামেরা', '3900 mAh ব্যাটারি'] },
+            { id: 2, name: 'ম্যাকবুক প্রো এম২', category: 'laptop', brand: 'apple', cpu: 'i7', price: 245000, oldPrice: null, image: 'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80', badge: null, description: 'অ্যাপলের নিজস্ব M2 চিপসেট, দীর্ঘক্ষণ ব্যাটারি ব্যাকআপ এবং প্রিমিয়াম বিল্ড কোয়ালিটি।', specs: ['Apple M2 Chip', '16 GB RAM', '512 GB SSD', '13.3 inch Retina Display', 'ফিঙ্গারপ্রিন্ট সেন্সর'] },
+            { id: 3, name: 'সনি হেডফোন এক্সএম৫', category: 'audio', brand: 'sony', cpu: null, price: 42500, oldPrice: null, image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80', badge: 'নতুন', description: 'ইন্ডাস্ট্রি লিডিং নয়েজ ক্যান্সেলেশন এবং ক্রিস্টাল ক্লার সাউন্ড কোয়ালিটি।', specs: ['নয়েজ ক্যান্সেলেশন', '৩০ ঘন্টা ব্যাটারি', 'ব্লুটুথ 5.2', 'কুইক চার্জ সাপোর্ট', 'টাচ কন্ট্রোল'] },
+            { id: 4, name: 'অ্যাপল ওয়াচ সিরিজ ৮', category: 'watch', brand: 'apple', cpu: null, price: 55000, oldPrice: null, image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80', badge: null, description: 'হার্ট রেট মনিটর, ইসিজি অ্যাপ এবং অক্সিজেন সেন্সর সমৃদ্ধ স্মার্ট ওয়াচ।', specs: ['৪৫ মিমি কেস', 'অলওয়েজ অন রেটিনা ডিসপ্লে', 'হার্ট রেট সেন্সর', 'ইসিজি অ্যাপ', '৫০ মিটার ওয়াটার রেজিস্ট্যান্ট'] },
+            { id: 5, name: 'আইপ্যাড প্রো ১২.৯"', category: 'laptop', brand: 'apple', cpu: 'i9', price: 165000, oldPrice: null, image: 'https://images.unsplash.com/photo-1527814050087-3793815479db?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80', badge: null, description: 'প্রো-গ্রেড পারফরম্যান্সের জন্য M2 চিপসেট এবং স্টানিং লিকুইড রেটিনা XDR ডিসপ্লে।', specs: ['M2 Chip', '8 GB RAM', '256 GB ROM', '১২.৯" Liquid Retina XDR', '৫G সাপোর্ট'] },
+            { id: 6, name: 'প্লেস্টেশন ৫', category: 'gaming', brand: 'sony', cpu: null, price: 72000, oldPrice: null, image: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80', badge: null, description: 'অত্যাধুনিক গ্রাফিক্স ও আলট্রা-ফাস্ট লোডিং টাইম সহ পরবর্তী জেনারেশনের গেমিং কনসোল।', specs: ['৮কে গ্রাফিক্স সাপোর্ট', '৮২৫জিবি এসএসডি', '৪কে ব্লু-রে ড্রাইভ', 'ডুয়ালসেন্স ওয়্যারলেস কন্ট্রোলার'] },
+            { id: 7, name: 'শাওমি রেডমি নোট ১২', category: 'phone', brand: 'xiaomi', cpu: null, price: 28000, oldPrice: 32000, image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80', badge: '-১৫%', description: 'শক্তিশালী ব্যাটারি ও এইচডি+ ডিসপ্লে সহ সাশ্রয়ী মূল্যের স্মার্টফোন।', specs: ['Snapdragon 685', '6 GB RAM', '128 GB ROM', '৫০MP ক্যামেরা', '৫০০০ mAh ব্যাটারি'] },
+            { id: 8, name: 'ওয়ানপ্লাস ১১আর', category: 'phone', brand: 'oneplus', cpu: null, price: 55000, oldPrice: 62000, image: 'https://images.unsplash.com/photo-1678911820864-e5c23e8bdf7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80', badge: '-১২%', description: 'বাটার স্মুথ পারফরম্যান্সের জন্য ফ্ল্যাগশিপ-কিলার ফোন।', specs: ['Snapdragon 8+ Gen 1', '12 GB RAM', '256 GB ROM', '৫০MP Sony IMX890', '১০০W সুপারভুচার্জ'] },
+            { id: 9, name: 'আইফোন ১৪ প্রো', category: 'phone', brand: 'apple', cpu: null, price: 145000, oldPrice: 160000, image: 'https://images.unsplash.com/photo-1678685888221-cda7755de8b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80', badge: '-১০%', description: 'ডায়নামিক আইল্যান্ড এবং অলওয়েজ-অন ডিসপ্লে সহ অ্যাপলের সেরা আইফোন।', specs: ['A16 Bionic', '6 GB RAM', '256 GB ROM', '৪৮MP ক্যামেরা', 'ডায়নামিক আইল্যান্ড'] },
+            { id: 10, name: 'ডেল এক্সপিএস ১৩', category: 'laptop', brand: 'dell', cpu: 'i5', price: 135000, oldPrice: null, image: 'https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80', badge: null, description: 'ইনফিনিটি এজ ডিসপ্লে এবং প্রিমিয়াম ডিজাইনের আল্ট্রাপোর্টেবল ল্যাপটপ।', specs: ['Intel i5 13th Gen', '16 GB RAM', '512 GB SSD', '১৩.৪" 4K ডিসপ্লে', 'ইন্টেল আইরিস Xe'] },
+            { id: 11, name: 'এইচপি প্যাভিলিয়ন ১৫', category: 'laptop', brand: 'hp', cpu: 'i5', price: 72000, oldPrice: 80000, image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80', badge: '-১০%', description: 'দৈনন্দিন ব্যবহারের জন্য পারফেক্ট এন্ট্রি-লেভেল ল্যাপটপ।', specs: ['Intel i5 12th Gen', '8 GB RAM', '512 GB SSD', '১৫.৬" FHD ডিসপ্লে', 'উইন্ডোজ ১১'] },
+            { id: 12, name: 'জেব্রোনিক্স এলিটবুক', category: 'laptop', brand: 'zebronics', cpu: 'i3', price: 38000, oldPrice: null, image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80', badge: null, description: 'স্টাইলিশ ডিজাইন ও সাশ্রয়ী মূল্যের ল্যাপটপ।', specs: ['Intel i3 11th Gen', '8 GB RAM', '256 GB SSD', '১৫.৬" HD ডিসপ্লে', 'ব্যাকলিট কীবোর্ড'] },
+            { id: 13, name: 'বিটস স্টুডিও৩', category: 'audio', brand: 'beats', cpu: null, price: 35000, oldPrice: 40000, image: 'https://images.unsplash.com/photo-1546435770-a3e426bf472b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80', badge: '-১২%', description: 'গভীর বেস এবং হাই-কোয়ালিটি সাউন্ডের জন্য বিখ্যাত ওভার-ইয়ার হেডফোন।', specs: ['অ্যাকটিভ নয়েজ ক্যান্সেলেশন', '৪০ ঘন্টা ব্যাটারি', 'ক্লাস ১ ব্লুটুথ', 'ফোল্ডেবল ডিজাইন', 'ইয়ারবাডস'] },
+            { id: 14, name: 'জেব্রা এলিট ৪৫এইচ', category: 'audio', brand: 'jabra', cpu: null, price: 15000, oldPrice: 18000, image: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80', badge: '-১৫%', description: 'অফিস ও কল সেন্টারের জন্য পারফেক্ট ওয়্যারলেস হেডসেট।', specs: ['নয়েজ ক্যান্সেলিং মাইক', '৩০ ঘন্টা ব্যাটারি', 'বাসবক্স', 'ফাস্ট চার্জিং', 'মাল্টিপয়েন্ট কানেকশন'] },
+            { id: 15, name: 'স্যামসাং গ্যালাক্সি ওয়াচ৫', category: 'watch', brand: 'samsung', cpu: null, price: 28000, oldPrice: null, image: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80', badge: null, description: 'বৃত্তাকার ডায়াল এবং উন্নত স্বাস্থ্য ট্র্যাকিং ফিচার সহ স্মার্ট ওয়াচ।', specs: ['সাফায়ার ক্রিস্টাল', 'বডি টেম্পারেচার সেন্সর', 'বিপি মেজারমেন্ট', 'ইসিজি মনিটর', '৯০+ ওয়ার্কআউট মোড'] },
+            { id: 16, name: 'অ্যামাজফিট জি টিআর ৩', category: 'watch', brand: 'amazfit', cpu: null, price: 8000, oldPrice: 10000, image: 'https://images.unsplash.com/photo-1556306510-31ca015374b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80', badge: '-২০%', description: 'খেলোয়াড় ও ফিটনেস প্রেমীদের জন্য সাশ্রয়ী স্মার্ট ওয়াচ।', specs: ['১.৩৯" এইচডি স্ক্রিন', '২১ দিন ব্যাটারি', '৫ এটিএম ওয়াটার রেজিস্ট্যান্ট', 'হার্ট রেট সেন্সর', 'জিপিএস'] },
+            { id: 17, name: 'ক্যানন ইওএস ১৫০০ডি', category: 'camera', brand: 'canon', cpu: null, price: 52000, oldPrice: 58000, image: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80', badge: '-১০%', description: 'শিক্ষার্থী ও নবীন ফটোগ্রাফারদের জন্য আদর্শ ডিএসএলআর ক্যামেরা।', specs: ['২৪.১ মেগাপিক্সেল', 'ডুয়াল পিক্সেল CMOS AF', '৩.০" এলসিডি স্ক্রিন', 'ফুল এইচডি ভিডিও', 'ওয়াই-ফাই বিল্ট-ইন'] },
+            { id: 18, name: 'সনি আলফা ৬৪০০', category: 'camera', brand: 'sony', cpu: null, price: 85000, oldPrice: null, image: 'https://images.unsplash.com/photo-1510127034890-ba27508e9f1c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80', badge: null, description: 'ভিডিওগ্রাফি ও ভ্লগিংয়ের জন্য দারুণ মিররলেস ক্যামেরা।', specs: ['২৪.২ মেগাপিক্সেল', '৪কে ভিডিও রেকর্ডিং', 'রিয়েল-টাইম ট্র্যাকিং', 'দ্রুত অটোফোকাস', 'টিল্টেবল এলসিডি'] }
+        ];
+
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+        let orders = [
+            { id: 101, productId: 1, date: '২০২৪-০৩-১৫', status: 'ডেলিভারি সম্পন্ন', price: 115000 },
+            { id: 102, productId: 3, date: '২০২৪-০৩-২২', status: 'পথে আছে', price: 42500 }
+        ];
+
+        let currentCategory = 'all';
+        let currentBrand = 'all';
+        let currentCpu = 'all';
+        let currentProduct = null;
+
+        // পণ্য গ্রিড রেন্ডার করার ফাংশন
+        function renderProducts() {
+            const grid = document.getElementById('productsGrid');
+            if (!grid) return;
+
+            let filteredProducts = products;
+
+            // ক্যাটাগরি ফিল্টার
+            if (currentCategory !== 'all') {
+                filteredProducts = filteredProducts.filter(p => p.category === currentCategory);
+            }
+
+            // ব্র্যান্ড ফিল্টার (শুধু ফোনের জন্য)
+            if (currentCategory === 'phone' && currentBrand !== 'all') {
+                filteredProducts = filteredProducts.filter(p => p.brand === currentBrand);
+            }
+
+            // CPU ফিল্টার (শুধু ল্যাপটপের জন্য)
+            if (currentCategory === 'laptop' && currentCpu !== 'all') {
+                filteredProducts = filteredProducts.filter(p => p.cpu === currentCpu);
+            }
+
+            if (filteredProducts.length === 0) {
+                grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: #64748b;">কোনো পণ্য পাওয়া যায়নি।</p>';
+                return;
+            }
+
+            let html = '';
+            filteredProducts.forEach(product => {
+                html += `
+                    <div class="product-card" onclick="openProductDetails(${product.id})">
+                        <div class="product-image">
+                            ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ''}
+                            <img src="${product.image}" alt="${product.name}">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">${product.name}</h3>
+                            <div class="product-price">
+                                <span class="current-price">৳ ${product.price.toLocaleString('bn-IN')}</span>
+                                ${product.oldPrice ? `<span class="old-price">৳ ${product.oldPrice.toLocaleString('bn-IN')}</span>` : ''}
+                            </div>
+                            <button class="add-to-cart" onclick="event.stopPropagation(); addToCart(${product.id})">
+                                <i class="fas fa-shopping-cart"></i> কার্টে
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+            grid.innerHTML = html;
+        }
+
+        // ফিল্টার ফাংশন
+        function filterCategory(category) {
+            currentCategory = category;
+            currentBrand = 'all';
+            currentCpu = 'all';
+
+            // ক্যাটাগরি চিপ আপডেট
+            document.querySelectorAll('.category-chip').forEach(chip => {
+                if (chip.dataset.category === category) {
+                    chip.classList.add('active');
+                } else {
+                    chip.classList.remove('active');
+                }
+            });
+
+            // ব্র্যান্ড ফিল্টার দেখানো/লুকানো
+            const brandFilter = document.getElementById('brandFilter');
+            const cpuFilter = document.getElementById('cpuFilter');
+            
+            if (category === 'phone') {
+                brandFilter.style.display = 'block';
+                cpuFilter.style.display = 'none';
+                // ব্র্যান্ড চিপ আপডেট
+                document.querySelectorAll('.brand-chip').forEach(chip => {
+                    if (chip.dataset.brand === 'all') chip.classList.add('active');
+                    else chip.classList.remove('active');
+                });
+            } else if (category === 'laptop') {
+                brandFilter.style.display = 'none';
+                cpuFilter.style.display = 'block';
+                // CPU চিপ আপডেট
+                document.querySelectorAll('.cpu-chip').forEach(chip => {
+                    if (chip.dataset.cpu === 'all') chip.classList.add('active');
+                    else chip.classList.remove('active');
+                });
+            } else {
+                brandFilter.style.display = 'none';
+                cpuFilter.style.display = 'none';
+            }
+
+            renderProducts();
+        }
+
+        function filterBrand(brand) {
+            if (currentCategory !== 'phone') return;
+            currentBrand = brand;
+            document.querySelectorAll('.brand-chip').forEach(chip => {
+                if (chip.dataset.brand === brand) {
+                    chip.classList.add('active');
+                } else {
+                    chip.classList.remove('active');
+                }
+            });
+            renderProducts();
+        }
+
+        function filterCpu(cpu) {
+            if (currentCategory !== 'laptop') return;
+            currentCpu = cpu;
+            document.querySelectorAll('.cpu-chip').forEach(chip => {
+                if (chip.dataset.cpu === cpu) {
+                    chip.classList.add('active');
+                } else {
+                    chip.classList.remove('active');
+                }
+            });
+            renderProducts();
+        }
+
+        // কার্ট ফাংশন
+        function updateCartCount() {
+            document.getElementById('cartCount').innerText = cart.length;
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            // একই পণ্য আগে থেকে কার্টে আছে কিনা চেক করা
+            const existing = cart.find(item => item.id === productId);
+            if (!existing) {
+                cart.push({ id: product.id, name: product.name, price: product.price, image: product.image });
+                updateCartCount();
+                alert(`"${product.name}" কার্টে যোগ করা হয়েছে।`);
+            } else {
+                alert('পণ্যটি ইতিমধ্যেই আপনার কার্টে আছে।');
+            }
+        }
+
+        function addToCartFromDetails() {
+            if (currentProduct) {
+                addToCart(currentProduct.id);
+            }
+        }
+
+        // উইশলিস্ট ফাংশন
+        function updateWishlistBadge() {
+            document.getElementById('wishlistBadge').innerText = wishlist.length;
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
+        }
+
+        function toggleWishlist(element) {
+            if (!currentProduct) return;
+            
+            const index = wishlist.findIndex(item => item.id === currentProduct.id);
+            if (index === -1) {
+                wishlist.push({ id: currentProduct.id, name: currentProduct.name, price: currentProduct.price, image: currentProduct.image });
+                element.style.color = '#fbbf24'; // হলুদ করা
+                alert(`"${currentProduct.name}" উইশলিস্টে যোগ করা হয়েছে।`);
+            } else {
+                wishlist.splice(index, 1);
+                element.style.color = 'white'; // সাদা করা
+                alert(`"${currentProduct.name}" উইশলিস্ট থেকে সরানো হয়েছে।`);
+            }
+            updateWishlistBadge();
+        }
+
+        // অর্ডার পেজ রেন্ডার
+        function renderOrders() {
+            const orderList = document.getElementById('orderList');
+            if (!orderList) return;
+
+            if (orders.length === 0) {
+                orderList.innerHTML = '<div class="empty-state"><i class="fas fa-box-open"></i><h3>কোনো অর্ডার নেই</h3><p>আপনি এখনও কোনো পণ্য অর্ডার করেননি।</p></div>';
+                return;
+            }
+
+            let html = '';
+            orders.forEach(order => {
+                const product = products.find(p => p.id === order.productId);
+                if (!product) return;
+                html += `
+                    <div class="product-card" style="margin-bottom: 15px;" onclick="openProductDetails(${product.id})">
+                        <div style="display: flex; gap: 15px; padding: 10px;">
+                            <img src="${product.image}" style="width: 80px; height: 80px; object-fit: contain; background: #f8fafc; border-radius: 10px;">
+                            <div style="flex: 1;">
+                                <h3 style="font-size: 16px;">${product.name}</h3>
+                                <p style="font-size: 13px; color: #64748b;">অর্ডার ID: #${order.id}</p>
+                                <p style="font-size: 12px; color: #dc2626;">${order.date} • ${order.status}</p>
+                                <p style="font-weight: bold;">৳ ${order.price.toLocaleString('bn-IN')}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            document.getElementById('orderBadge').innerText = orders.length;
+            orderList.innerHTML = html;
+        }
+
+        // প্রোডাক্ট ডিটেলস পেজ ওপেন
+        function openProductDetails(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+            currentProduct = product;
+
+            document.getElementById('detailsImage').src = product.image;
+            document.getElementById('detailsTitle').innerText = product.name;
+            document.getElementById('detailsPrice').innerHTML = `৳ ${product.price.toLocaleString('bn-IN')} ${product.oldPrice ? `<span style="font-size: 16px; color: #94a3b8; text-decoration: line-through; font-weight: normal;">৳ ${product.oldPrice.toLocaleString('bn-IN')}</span>` : ''}`;
+            document.getElementById('detailsDescription').innerText = product.description;
+
+            // স্পেসিফিকেশন
+            let specsHtml = '';
+            product.specs.forEach(spec => {
+                specsHtml += `<li><i class="fas fa-circle" style="font-size: 6px;"></i> <span>${spec}</span></li>`;
+            });
+            document.getElementById('detailsSpecs').innerHTML = specsHtml;
+
+            // সম্পর্কিত পণ্য (একই ক্যাটাগরির প্রথম ২টি, বর্তমানটি বাদে)
+            const related = products.filter(p => p.category === product.category && p.id !== product.id).slice(0, 2);
+            let relatedHtml = '';
+            related.forEach(p => {
+                relatedHtml += `
+                    <div class="product-card" onclick="openProductDetails(${p.id})">
+                        <div class="product-image">
+                            <img src="${p.image}" alt="${p.name}">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">${p.name}</h3>
+                            <div class="product-price"><span class="current-price">৳ ${p.price.toLocaleString('bn-IN')}</span></div>
+                            <button class="add-to-cart" onclick="event.stopPropagation(); addToCart(${p.id})"><i class="fas fa-shopping-cart"></i> কার্টে</button>
+                        </div>
+                    </div>
+                `;
+            });
+            document.getElementById('relatedProductsGrid').innerHTML = relatedHtml || '<p style="grid-column: 1/-1; text-align: center; color: #64748b;">সম্পর্কিত পণ্য নেই।</p>';
+
+            openPage('page-product-details');
+        }
+
+        // পেজ ওপেন/ক্লোজ
+        function openPage(pageId) {
+            closeAllPages();
+            document.getElementById(pageId).classList.add('active');
+            if (pageId === 'page-order') renderOrders();
+            if (pageId === 'page-wishlist') renderWishlist();
+            history.pushState({ page: pageId }, '', `#${pageId}`);
+        }
+
+        function closePage(pageId) {
+            document.getElementById(pageId).classList.remove('active');
+            history.back();
+        }
+
+        function closeAllPages() {
+            document.querySelectorAll('.full-screen-page').forEach(page => {
+                page.classList.remove('active');
+            });
+            history.pushState({ page: 'home' }, '', '#');
+        }
+
+        // ব্যাক বাটন হ্যান্ডলিং
+        window.addEventListener('popstate', (event) => {
+            if (event.state && event.state.page) {
+                if (event.state.page !== 'home') {
+                    document.querySelectorAll('.full-screen-page').forEach(page => {
+                        if (page.id === event.state.page) {
+                            page.classList.add('active');
+                        } else {
+                            page.classList.remove('active');
+                        }
+                    });
+                } else {
+                    document.querySelectorAll('.full-screen-page').forEach(page => {
+                        page.classList.remove('active');
+                    });
+                }
+            } else {
+                document.querySelectorAll('.full-screen-page').forEach(page => {
+                    page.classList.remove('active');
+                });
+            }
+        });
+
+        // উইশলিস্ট রেন্ডার
+        function renderWishlist() {
+            const container = document.getElementById('wishlistItems');
+            if (wishlist.length === 0) {
+                container.innerHTML = '<div class="empty-state"><i class="fas fa-heart-broken"></i><h3>উইশলিস্ট খালি</h3><p>পছন্দের পণ্যগুলো উইশলিস্টে যুক্ত করুন।</p></div>';
+                return;
+            }
+
+            let html = '<div class="products-grid">';
+            wishlist.forEach(item => {
+                html += `
+                    <div class="product-card" onclick="openProductDetails(${item.id})">
+                        <div class="product-image">
+                            <img src="${item.image}" alt="${item.name}">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">${item.name}</h3>
+                            <div class="product-price"><span class="current-price">৳ ${item.price.toLocaleString('bn-IN')}</span></div>
+                            <button class="add-to-cart" onclick="event.stopPropagation(); addToCart(${item.id})"><i class="fas fa-shopping-cart"></i> কার্টে</button>
+                        </div>
+                    </div>
+                `;
+            });
+            html += '</div>';
+            container.innerHTML = html;
+        }
+
+        // ইভেন্ট লিসেনার
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProducts();
+            updateCartCount();
+            updateWishlistBadge();
+
+            // ক্যাটাগরি চিপ ক্লিক
+            document.querySelectorAll('.category-chip').forEach(chip => {
+                chip.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    filterCategory(chip.dataset.category);
+                });
+            });
+
+            // ব্র্যান্ড চিপ ক্লিক
+            document.querySelectorAll('.brand-chip').forEach(chip => {
+                chip.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    filterBrand(chip.dataset.brand);
+                });
+            });
+
+            // CPU চিপ ক্লিক
+            document.querySelectorAll('.cpu-chip').forEach(chip => {
+                chip.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    filterCpu(chip.dataset.cpu);
+                });
+            });
+
+            // টগল সুইচ
+            document.querySelectorAll('.toggle-switch').forEach(toggle => {
+                toggle.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    toggle.classList.toggle('active');
+                });
+            });
+
+            // নেভিগেশন আইটেম সক্রিয়
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.addEventListener('click', function(e) {
+                    if(!this.getAttribute('onclick')) {
+                        e.preventDefault();
+                    }
+                    document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            // হোম আইটেম ক্লিক
+            document.querySelectorAll('[onclick="closeAllPages(); filterCategory(\'all\');"]').forEach(item => {
+                item.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    closeAllPages();
+                    filterCategory('all');
+                });
+            });
+
+            // সার্চ ফাংশন
+            document.getElementById('searchInput').addEventListener('input', (e) => {
+                const query = e.target.value.toLowerCase();
+                if (query.length > 2) {
+                    const results = products.filter(p => p.name.toLowerCase().includes(query));
+                    // ছোট ফলাফল দেখানোর জন্য কনসোল লগ বা অন্য কিছু করা যেতে পারে। এখানে শুধু প্রোডাক্ট গ্রিড আপডেট করা হলো।
+                    // আরও ভালো অভিজ্ঞতার জন্য সার্চ পেজ খোলা যেতে পারে।
+                }
+            });
+
+            // ব্যাক বাটনের জন্য প্রাথমিক স্টেট
+            if (!window.location.hash || window.location.hash === '#') {
+                history.replaceState({ page: 'home' }, '', '#');
+            }
+        });
+
+        // গ্লোবাল ফাংশন
+        window.openPage = openPage;
+        window.closePage = closePage;
+        window.closeAllPages = closeAllPages;
+        window.filterCategory = filterCategory;
+        window.filterBrand = filterBrand;
+        window.filterCpu = filterCpu;
+        window.addToCart = addToCart;
+        window.openProductDetails = openProductDetails;
+        window.addToCartFromDetails = addToCartFromDetails;
+        window.toggleWishlist = toggleWishlist;
+    </script>
+</body>
+</html>
